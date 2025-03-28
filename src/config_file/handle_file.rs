@@ -17,7 +17,6 @@ pub fn get_file() -> String {
 }
 
 pub fn get_content(file_path: &str) -> String {
-    // Get contentfiguration
     let mut file = File::open(file_path).expect("Failed to open file");
     let mut content = String::new();
     file.read_to_string(&mut content)
