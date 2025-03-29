@@ -4,7 +4,7 @@ use std::io::prelude::*;
 pub fn get_file(args: Vec<String>) -> String {
 
     // Form path of the config file
-    let file_path = format!("{}{}", { &args[1] }, { "/config.json" });
+    let file_path = format!("{}{}", { &args[2] }, { "/config.json" });
     // dbg!(args);
 
 
