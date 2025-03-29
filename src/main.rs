@@ -11,16 +11,18 @@ use config_file::{
     handle_file::{get_content, get_file},
 };
 use copy::check::check_exists;
+use copy::copy_file::copy_file;
 
 fn main() {
     let args = get_args();
     let mode = handle_mode(args.clone());
 
     if mode == Mode::Copy {
-        let file_path = get_file(args);
-        let data = get_content(file_path);
-        let config = convert_to_json(data);
+        let file_path = get_file(&args);
+        let data = get_content(&file_path);
+        let config = convert_to_json(&data);
 
-        check_exists(config);
+        check_exists(&config, &args);
+        copy_file(&config, &args);
     }
 }
