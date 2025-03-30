@@ -8,25 +8,32 @@ Ronfig helps you store and organize configuration files in one directory and cop
 
 ### Clone and build Ronfig:
 
+```bash
 git clone https://github.com/DerIch69420/Ronfig.git
 cd Ronfig
 cargo build --release
+```
 
 ## Usage ⚙️
 
 ### 1. Create a Config Directory
 
+```bash
 mkdir config_files
 cd config_files
+```
 
 ### 2. Define Your Configurations
 
 Create a config.json file:
 
+```bash
 vi config.json
+```
 
 Add the following content:
 
+```json
 [
   {
     "filename": "my_config_file.conf",
@@ -37,19 +44,24 @@ Add the following content:
     "desired_path": "other/config/location"
   }
 ]
+```
 
 ### 3. Add Your Configuration Files
 
 Create the actual configuration files referenced in config.json:
 
+```bash
 vi my_config_file.conf
 vi my_other_config_file
+```
 
 ### 4. Copy Files to Their Destination
 
 Run Ronfig to deploy your configuration files:
 
+```bash
 path/to/ronfig copy config_files
+```
 
 ## How It Works 🛠️
 
