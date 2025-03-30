@@ -4,21 +4,11 @@ Manage your configuration files easily in one directory and copy them to other d
 
 ## Installation 📥
 
-Clone the repository:
+Clone the and build Ronfig:
 
 ```bash
 git clone https://github.com/DerIch69420/Ronfig.git
-```
-
-Move into the repository:
-
-```bash
 cd Ronfig
-```
-
-Build it:
-
-```bash
 cargo build
 ```
 
@@ -26,6 +16,7 @@ Create a new directory to manage your config files:
 
 ```bash
 mkdir config_files
+cd config_files
 ```
 
 Create a config.json:
