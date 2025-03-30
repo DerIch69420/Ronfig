@@ -1,33 +1,32 @@
 # Ronfig 🗂️
 
-Manage your configuration files easily in one directory and copy them to other devices 🚀
+Easily manage and deploy your configuration files across devices. 🚀
+
+Ronfig helps you store and organize configuration files in one directory and copy them to their respective locations effortlessly. Instead of manually managing dotfiles or config backups, use Ronfig to automate the process.
 
 ## Installation 📥
 
-Clone the and build Ronfig:
+### Clone and build Ronfig:
 
-```bash
 git clone https://github.com/DerIch69420/Ronfig.git
 cd Ronfig
-cargo build
-```
+cargo build --release
 
-Create a new directory to manage your config files:
+## Usage ⚙️
 
-```bash
+### 1. Create a Config Directory
+
 mkdir config_files
 cd config_files
-```
 
-Create a config.json:
+### 2. Define Your Configurations
 
-```bash
+Create a config.json file:
+
 vi config.json
-```
 
-Add the following lines to config.json:
+Add the following content:
 
-```json
 [
   {
     "filename": "my_config_file.conf",
@@ -38,24 +37,48 @@ Add the following lines to config.json:
     "desired_path": "other/config/location"
   }
 ]
-```
 
-Create your configuration file:
+### 3. Add Your Configuration Files
 
-```bash
+Create the actual configuration files referenced in config.json:
+
 vi my_config_file.conf
 vi my_other_config_file
-```
 
-Copy your files to the desired location:
+### 4. Copy Files to Their Destination
 
-```bash
+Run Ronfig to deploy your configuration files:
+
 path/to/ronfig copy config_files
-```
 
-## Documentation 📚
+## How It Works 🛠️
 
-### Modes ⚙️
+Ronfig reads config.json and copies the specified files from the source directory to their respective desired_path locations. If a file already exists in the target location, it will be overwritten.
 
-- help ➡️ Displays help
-- copy ➡️ Copies your configuration files to the specified location
+###Available Modes 🎛️
+
+* help → Displays usage information.
+
+* copy → Copies configuration files to their specified locations.
+
+
+## Features ✨
+
+* Simple JSON-based configuration management
+
+* Automates copying configuration files to desired locations
+
+* Easily backup and restore configuration files
+
+* Lightweight and fast
+
+##
+Future Plans 🏗️
+
+* Add symlinks
+
+
+## Contributing 🤝
+
+Contributions are welcome! If you find a bug or have a feature request, open an issue or submit a pull request.
+
