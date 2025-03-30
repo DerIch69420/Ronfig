@@ -22,7 +22,9 @@ fn main() {
         let data = get_content(&file_path);
         let config = convert_to_json(&data);
 
-        check_exists(&config, &args);
-        copy_file(&config, &args);
+        for configuration in &config {
+            check_exists(&configuration, &args);
+            copy_file(&configuration, &args);
+        }
     }
 }
