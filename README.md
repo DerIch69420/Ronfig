@@ -46,6 +46,9 @@ Add the following content:
 ]
 ```
 
+> filename: A relative path to the file from your configuration directory. This can include subdirectories.
+> desired_path: The target location where the file should be placed, relative to your home directory (~).
+
 ### 3. Add Your Configuration Files
 
 Create the actual configuration files referenced in config.json:
