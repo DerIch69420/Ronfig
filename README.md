@@ -87,10 +87,11 @@ Ronfig reads config.json and copies the specified files from the source director
 
 * Lightweight and fast
 
-##
-Future Plans 🏗️
+## Future Plans 🏗️
 
-* Add symlinks
+* Add support for copying directories
+* Add automatic directory creation
+* Add symlink support
 
 
 ## Contributing 🤝
