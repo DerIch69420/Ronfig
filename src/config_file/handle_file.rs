@@ -8,7 +8,7 @@ use crate::exit_codes::codes::ExitCode;
 pub fn get_file(args: &Vec<String>) -> PathBuf {
     // First argument is binary
     // Second argument is mode
-    // Third argument is location of config.json
+    // Third argument is dir in which config.json is
     if args.len() > 3 {
         println!("Too many arguments!");
         println!("Try using \"help\"");
