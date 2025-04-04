@@ -56,7 +56,8 @@ Create the actual configuration files referenced in config.json:
 
 ```bash
 vi my_config_file.conf
-vi my_other_config_file
+vi my_dir_to_copy/file1.conf
+vi my_dir_to_copy/file2.conf
 ```
 
 ### 4. Copy Files to Their Destination
