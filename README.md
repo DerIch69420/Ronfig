@@ -36,18 +36,19 @@ Add the following content:
 ```json
 [
   {
-    "filename": "my_config_file.conf",
+    "config_file_path": "my_config_file.conf",
     "desired_path": "my/config/location"
   },
   {
-    "filename": "my_other_config_file",
+    "config_dir_path": "my_dir_to_copy",
     "desired_path": "other/config/location"
   }
 ]
 ```
 
-> **filename:** A relative path to the file from your configuration directory. This can include subdirectories.  
-> **desired_path:** The target location where the file should be placed, relative to your home directory (~).
+> **config_file_path:** A relative path to the file from your configuration directory. This can include subdirectories.   
+> **config_dir_path:** A relative path to the directory to copy in your configuration directory. This can include subdirectories.  
+> **desired_path:** The target location where the file should be placed, relative to your home directory (~).  
 
 ### 3. Add Your Configuration Files
 
