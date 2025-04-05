@@ -6,12 +6,53 @@ Ronfig helps you store and organize configuration files in one directory and cop
 
 ## Installation 📥
 
-### Clone and build Ronfig:
+### Quick Install 🔧
+
+#### Clone Ronfig:
+
+```bash
+git clone https://github.com/DerIch69420/Ronfig.git
+cd Ronfig
+```
+
+#### Run the Install Script:
+```bash
+chmod u+x build/build.sh 
+./build/build.sh
+```
+
+#### Reload your Shell Configuration:
+```bash
+source .zshrc # or source .bashrc
+```
+
+### Manual Install
+
+#### Clone and build Ronfig:
 
 ```bash
 git clone https://github.com/DerIch69420/Ronfig.git
 cd Ronfig
 cargo build --release
+```
+
+#### Add it to your Path:
+Move the compiled binary to `~/.local/bin` (or any directory in your `PATH`):
+
+```bash
+mkdir -p ~/.local/bin
+cp target/release/ronfig ~/.local/bin/
+```
+
+Then add the following line to your shell config (`~/.zshrc`, `~/.bashrc`, etc.) if not already present:
+
+```bash
+export PATH="\$HOME/.local/bin:\$PATH"
+```
+
+#### Reload your Shell Configuration:
+```bash
+source .zshrc # or source .bashrc
 ```
 
 ## Usage ⚙️
