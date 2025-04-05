@@ -106,7 +106,7 @@ vi my_dir_to_copy/file2.conf
 Run Ronfig to deploy your configuration files:
 
 ```bash
-path/to/ronfig copy config_files
+ronfig copy config_files
 ```
 
 ## How It Works 🛠️
