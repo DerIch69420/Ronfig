@@ -47,7 +47,7 @@ cp target/release/ronfig ~/.local/bin/
 Then add the following line to your shell config (`~/.zshrc`, `~/.bashrc`, etc.) if not already present:
 
 ```bash
-export PATH="\$HOME/.local/bin:\$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 ```
 
 #### Reload your Shell Configuration:
@@ -108,6 +108,8 @@ Run Ronfig to deploy your configuration files:
 ```bash
 ronfig copy config_files
 ```
+
+## [Documentation](_main.md)
 
 ## How It Works 🛠️
 
