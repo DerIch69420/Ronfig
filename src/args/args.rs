@@ -1,7 +1,5 @@
 use std::{env, process::exit};
 
-use crate::exit_codes::codes::ExitCode;
-
 pub fn get_args() -> Vec<String> {
     // Get passed arguments
     let args: Vec<String> = env::args().collect();
@@ -14,7 +12,7 @@ pub fn get_args() -> Vec<String> {
     if args.len() == 1 {
         println!("No arguments passed");
         println!("Try adding \"help\"");
-        exit(ExitCode::TooFewArguments.into());
+        exit(1);
     }
 
     return args;
@@ -38,4 +36,3 @@ impl Mode {
         }
     }
 }
-
