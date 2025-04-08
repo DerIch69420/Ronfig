@@ -1,28 +1,12 @@
-use std::process::exit;
-
-use super::super::exit_codes::codes::ExitCode;
 use super::args::Mode;
 
 pub fn handle_mode(args: Vec<String>) -> Mode {
     let mode = Mode::from_str(&args[1].to_lowercase());
 
     match mode {
-        Mode::Help => help(),
+        Mode::Help => return Mode::Help,
         Mode::Copy => return Mode::Copy,
-        Mode::Indvalid => invalid(),
+        Mode::Indvalid => return Mode::Indvalid,
     }
 }
 
-fn help() -> ! {
-    println!("Check out the repo for more information");
-    println!("https://github.com/DerIch69420/Ronfig");
-    println!("Or read the documentation");
-    println!("https://github.com/DerIch69420/Ronfig/blob/main/docs/_main.md");
-    exit(ExitCode::EverythingFine.into());
-}
-
-fn invalid() -> ! {
-    println!("Unknown argument!");
-    println!("Try using \"help\"");
-    exit(ExitCode::InvalidArgument.into());
-}

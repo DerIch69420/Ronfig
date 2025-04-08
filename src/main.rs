@@ -1,8 +1,7 @@
 mod args;
 mod config;
 mod config_file;
-mod copy;
-mod exit_codes;
+mod modes;
 
 use args::args::Mode;
 use args::{args::get_args, handle_args::handle_mode};
@@ -11,12 +10,23 @@ use config_file::{
     convert_to_json::convert_to_json,
     handle_file::{get_content, get_file},
 };
-use copy::check::check_exists;
-use copy::copy::{copy_dir, copy_file};
+
+use modes::copy::check::check_exists;
+use modes::copy::copy::{copy_dir, copy_file};
+use modes::help::help::help;
+use modes::invalid::invalid::invalid;
 
 fn main() {
     let args = get_args();
     let mode = handle_mode(args.clone());
+
+    if mode == Mode::Indvalid {
+        invalid();
+    }
+
+    if mode == Mode::Help {
+        help();
+    }
 
     if mode == Mode::Copy {
         // Get configuration
@@ -42,7 +52,6 @@ fn main() {
                     copy_dir(&configuration, &args);
                 }
             }
-
         }
     }
 }

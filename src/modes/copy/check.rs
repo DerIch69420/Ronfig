@@ -1,6 +1,6 @@
 use std::{env, path::PathBuf, process::exit};
 
-use crate::{config::config_options::ConfigOptions, exit_codes::codes::ExitCode};
+use crate::config::config_options::ConfigOptions;
 
 pub fn check_exists(data: &ConfigOptions, args: &Vec<String>) {
     let home = env::var("HOME").expect("Failed to get HOME env variable");
@@ -9,7 +9,7 @@ pub fn check_exists(data: &ConfigOptions, args: &Vec<String>) {
 
     if !desired_path.is_dir() {
         println!("{} does not exist", desired_path.display());
-        exit(ExitCode::DirectoryDoesNotExist.into());
+        exit(1);
     }
 
     // args[2] -> directory which contains the file
@@ -17,6 +17,6 @@ pub fn check_exists(data: &ConfigOptions, args: &Vec<String>) {
     let config_path = PathBuf::from(config_path);
     if !config_path.exists() {
         println!("{} does not exist", { config_path.display() });
-        exit(ExitCode::FileDoesNotExist.into());
+        exit(1);
     };
 }

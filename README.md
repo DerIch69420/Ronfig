@@ -21,9 +21,15 @@ chmod u+x build/build.sh
 ./build/build.sh
 ```
 
+#### Add it to your shell onfig
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.${SHELL##*/}rc"
+```
+
 #### Reload your Shell Configuration:
 ```bash
-source .zshrc # or source .bashrc
+source ~/.zshrc # or source .bashrc
 ```
 
 ### Manual Install
@@ -52,7 +58,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #### Reload your Shell Configuration:
 ```bash
-source .zshrc # or source .bashrc
+source ~/.zshrc # or source .bashrc
 ```
 
 ## Usage ⚙️
