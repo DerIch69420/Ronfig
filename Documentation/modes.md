@@ -1,0 +1,17 @@
+# Modes
+* The mode in which ronfig runs is the first one to be passed after the binary
+```bash
+ronfig $mode
+```
+
+## Copy
+* Copy files from your config directory to your desired location
+```bash
+ronfig copy $config_dir
+```
+
+## Help
+* See help about ronfig
+```bash
+ronfig help
+```

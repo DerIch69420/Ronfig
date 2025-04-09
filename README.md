@@ -21,6 +21,12 @@ chmod u+x build/build.sh
 ./build/build.sh
 ```
 
+#### Add it to your shell onfig
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.${SHELL##*/}rc"
+```
+
 #### Reload your Shell Configuration:
 ```bash
 source ~/.zshrc # or source ~/.bashrc
@@ -55,7 +61,7 @@ export PATH="$HOME/.local/bin:$PATH"
 source ~/.zshrc # or source ~/.bashrc
 ```
 
-## Usage ⚙️
+## Qiuck Usage ⚙️
 
 ### 1. Create a Config Directory
 
@@ -109,35 +115,16 @@ Run Ronfig to deploy your configuration files:
 ronfig copy config_files
 ```
 
-## How It Works 🛠️
-
-Ronfig reads config.json and copies the specified files from the source directory to their respective desired_path locations. If a file already exists in the target location, it will be overwritten.
-
-### Available Modes 🎛️
-
-* help → Displays usage information.
-
-* copy → Copies configuration files to their specified locations.
-
-
-## Features ✨
-
-* Simple JSON-based configuration management
-
-* Automates copying configuration files to desired locations
-
-* Easily backup and restore configuration files
-
-* Lightweight and fast
-
 ## Future Plans 🏗️
 
 * Add colored output
 * Add automatic directory creation
 * Add symlink support
 
-
 ## Contributing 🤝
 
 Contributions are welcome! If you find a bug or have a feature request, open an issue or submit a pull request.
+
+## [Documentation](Documentation/_main.md)
+## [MIT License](LICENSE)
 

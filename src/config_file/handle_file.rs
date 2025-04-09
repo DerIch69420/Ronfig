@@ -3,8 +3,6 @@ use std::io::prelude::*;
 use std::path::PathBuf;
 use std::process::exit;
 
-use crate::exit_codes::codes::ExitCode;
-
 pub fn get_file(args: &Vec<String>) -> PathBuf {
     // First argument is binary
     // Second argument is mode
@@ -12,7 +10,7 @@ pub fn get_file(args: &Vec<String>) -> PathBuf {
     if args.len() > 3 {
         println!("Too many arguments!");
         println!("Try using \"help\"");
-        exit(ExitCode::TooManyArguments.into());
+        exit(1);
     }
 
     // Form path of the config file
@@ -29,5 +27,5 @@ pub fn get_content(file_path: &PathBuf) -> String {
     file.read_to_string(&mut content)
         .expect("Failed to read file");
 
-    content
+    return content;
 }
