@@ -126,5 +126,5 @@ ronfig copy config_files
 Contributions are welcome! If you find a bug or have a feature request, open an issue or submit a pull request.
 
 ## [Documentation](Documentation/_main.md)
-## [License](LICENSE)
+## [MIT License](LICENSE)
 
