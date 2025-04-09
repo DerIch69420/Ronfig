@@ -23,7 +23,7 @@ chmod u+x build/build.sh
 
 #### Reload your Shell Configuration:
 ```bash
-source .zshrc # or source .bashrc
+source ~/.zshrc # or source ~/.bashrc
 ```
 
 ### Manual Install
@@ -47,12 +47,12 @@ cp target/release/ronfig ~/.local/bin/
 Then add the following line to your shell config (`~/.zshrc`, `~/.bashrc`, etc.) if not already present:
 
 ```bash
-export PATH="\$HOME/.local/bin:\$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 ```
 
 #### Reload your Shell Configuration:
 ```bash
-source .zshrc # or source .bashrc
+source ~/.zshrc # or source ~/.bashrc
 ```
 
 ## Usage ⚙️
