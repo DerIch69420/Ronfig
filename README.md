@@ -29,7 +29,7 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.${SHELL##*/}rc"
 
 #### Reload your Shell Configuration:
 ```bash
-source ~/.zshrc # or source .bashrc
+source ~/.zshrc # or source ~/.bashrc
 ```
 
 ### Manual Install
@@ -58,7 +58,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #### Reload your Shell Configuration:
 ```bash
-source ~/.zshrc # or source .bashrc
+source ~/.zshrc # or source ~/.bashrc
 ```
 
 ## Qiuck Usage ⚙️
