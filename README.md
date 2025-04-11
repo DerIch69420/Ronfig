@@ -4,6 +4,12 @@ Easily manage and deploy your configuration files across devices. 🚀
 
 Ronfig helps you store and organize configuration files in one directory and copy them to their respective locations effortlessly. Instead of manually managing dotfiles or config backups, use Ronfig to automate the process.
 
+## Requirements 📌
+Before installing, make sure you have the following installed:
+
+* [Rust & Cargo 🦀](https://www.rust-lang.org/tools/install)
+* [Git 🔧](https://git-scm.com/downloads)
+
 ## Installation 📥
 
 ### Quick Install 🔧
