@@ -18,21 +18,3 @@ pub fn get_args() -> Vec<String> {
     return args;
 }
 
-// Enum for handling the Mode of the application
-// For the first argument passed after binary
-#[derive(PartialEq)]
-pub enum Mode {
-    Help,
-    Copy,
-    Indvalid,
-}
-
-impl Mode {
-    pub fn from_str(arg: &str) -> Self {
-        match arg {
-            "help" => Mode::Help,
-            "copy" => Mode::Copy,
-            _ => Mode::Indvalid,
-        }
-    }
-}

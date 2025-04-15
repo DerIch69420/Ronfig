@@ -3,7 +3,6 @@ mod config;
 mod config_file;
 mod modes;
 
-use args::args::Mode;
 use args::{args::get_args, handle_args::handle_mode};
 use config::config_options::ConfigOptions;
 use config_file::{
@@ -11,10 +10,11 @@ use config_file::{
     handle_file::{get_content, get_file},
 };
 
-use modes::copy::check::check_exists;
 use modes::copy::copy::{copy_dir, copy_file};
 use modes::help::help::help;
 use modes::invalid::invalid::invalid;
+use modes::modes::Mode;
+use modes::{copy::check::check_exists, new::new::new};
 
 fn main() {
     let args = get_args();
@@ -28,7 +28,20 @@ fn main() {
         help();
     }
 
+    if mode == Mode::New {
+        if args.len() != 3 {
+            println!("Wrong amount of arguments");
+            return;
+        }
+        new(&args);
+    }
+
     if mode == Mode::Copy {
+        if args.len() != 3 {
+            println!("Wrong amount of arguments");
+            return;
+        }
+
         // Get configuration
         let file_path = get_file(&args);
         let data = get_content(&file_path);
