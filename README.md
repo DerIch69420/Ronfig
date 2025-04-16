@@ -72,50 +72,30 @@ source ~/.zshrc # or source ~/.bashrc
 ### 1. Create a Config Directory
 
 ```bash
-mkdir config_files
-cd config_files
+ronfig new config_dir
 ```
 
 ### 2. Define Your Configurations
 
-Create a config.json file:
+Edit the config.json file:
 
 ```bash
-vi config.json
+vi config_dir/config.json
 ```
-
-Add the following content:
-
-```json
-[
-  {
-    "config_file_path": "my_config_file.conf",
-    "desired_path": "my/config/location"
-  },
-  {
-    "config_dir_path": "my_dir_to_copy",
-    "desired_path": "other/config/location"
-  }
-]
-```
-
-> **config_file_path:** A relative path to the file from your configuration directory. This can include subdirectories.   
-> **config_dir_path:** A relative path to the directory to copy in your configuration directory. This can include subdirectories.  
-> **desired_path:** The target location where the file should be placed, relative to your home directory (~).  
 
 ### 3. Add Your Configuration Files
 
 Create the actual configuration files referenced in config.json:
 
 ```bash
-vi my_config_file.conf
-vi my_dir_to_copy/file1.conf
-vi my_dir_to_copy/file2.conf
+vi config_dir/my_config_file.conf
+vi config_dir/my_dir_to_copy/file1.conf
+vi config_dir/my_dir_to_copy/file2.conf
 ```
 
 ### 4. Copy Files to Their Destination
 
-Run Ronfig to deploy your configuration files:
+Use Ronfig to deploy your configuration files:
 
 ```bash
 ronfig copy config_files

@@ -41,3 +41,5 @@
 * **Example:**
 ```json
 "config_dir_path":"nvim"
+```
+
