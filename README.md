@@ -80,7 +80,7 @@ ronfig new config_dir
 Edit the config.json file:
 
 ```bash
-vi config.json
+vi config_dir/config.json
 ```
 
 ### 3. Add Your Configuration Files
@@ -88,9 +88,9 @@ vi config.json
 Create the actual configuration files referenced in config.json:
 
 ```bash
-vi my_config_file.conf
-vi my_dir_to_copy/file1.conf
-vi my_dir_to_copy/file2.conf
+vi config_dir/my_config_file.conf
+vi config_dir/my_dir_to_copy/file1.conf
+vi config_dir/my_dir_to_copy/file2.conf
 ```
 
 ### 4. Copy Files to Their Destination
