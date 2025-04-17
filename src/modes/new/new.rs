@@ -7,6 +7,12 @@ use std::{
 pub fn new(args: &Vec<String>) {
     let directory = PathBuf::from(&args[2]);
 
+    if directory.exists() {
+        println!("{} already exists!", directory.display());
+
+        return;
+    }
+
     fs::create_dir(&directory).expect("Couldn't create directory");
 
     let file_path = directory.join("config.json");
