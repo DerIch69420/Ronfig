@@ -1,4 +1,8 @@
-use std::{env, fs::{self, create_dir}, path::PathBuf};
+use std::{
+    env,
+    fs::{self, create_dir},
+    path::PathBuf,
+};
 
 use crate::config::config_options::ConfigOptions;
 
@@ -33,7 +37,10 @@ pub fn copy_file(data: &ConfigOptions, args: &Vec<String>) {
         .join(data.get_desired_path())
         .join(data.get_config_path());
 
-    fs::copy(&filename, &new_file).expect("Could not copy file");
+    fs::copy(&filename, &new_file).unwrap_or_else(|e| {
+        eprintln!("Failed to copy file {}: {}", filename.display(), e);
+        std::process::exit(1); // Exit the program with error
+    });
     println!("Copied {} to {}", { filename.display() }, {
         new_file.display()
     })
@@ -53,5 +60,9 @@ pub fn copy_dir(data: &ConfigOptions, args: &Vec<String>) {
     let _ = create_dir(&new_dir);
 
     copy_from_to(directory.clone(), new_dir.clone());
-    println!("Copied directory from {} to {}", directory.display(), new_dir.display());
+    println!(
+        "Copied directory from {} to {}",
+        directory.display(),
+        new_dir.display()
+    );
 }
