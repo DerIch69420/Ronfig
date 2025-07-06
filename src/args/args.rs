@@ -9,12 +9,19 @@ pub fn get_args() -> Vec<String> {
 
     // dbg!(&args);
 
+    // Too few arguments
     if args.len() == 1 {
         println!("No arguments passed");
         println!("Try adding \"help\"");
         exit(1);
     }
 
+    // Too many arguments
+    if args.len() > 3 {
+        println!("Too many arguments passed");
+        println!("Try \"Help\"");
+        exit(1)
+    }
+
     return args;
 }
-

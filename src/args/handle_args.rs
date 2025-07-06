@@ -1,8 +1,7 @@
 use crate::modes::modes::Mode;
 
-
 pub fn handle_mode(args: Vec<String>) -> Mode {
-    let mode = Mode::from_str(&args[1].to_lowercase());
+    let mode: Mode = Mode::from_str(&args[1].to_lowercase());
 
     match mode {
         Mode::Help => return Mode::Help,
@@ -11,4 +10,3 @@ pub fn handle_mode(args: Vec<String>) -> Mode {
         Mode::Indvalid => return Mode::Indvalid,
     }
 }
-
