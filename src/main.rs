@@ -37,7 +37,7 @@ fn main() {
     }
 
     if mode == Mode::Copy {
-        if args.len() != 3 {
+        if args.len() != 2 && args.len() != 3 {
             println!("Wrong amount of arguments");
             return;
         }
@@ -68,3 +68,4 @@ fn main() {
         }
     }
 }
+

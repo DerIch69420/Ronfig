@@ -13,7 +13,12 @@ pub fn check_exists(data: &ConfigOptions, args: &Vec<String>) {
     }
 
     // args[2] -> directory which contains the file
-    let config_path = format!("{}/{}", args[2], data.get_config_path().display());
+    let config_path: String = if args.len() == 3 {
+        format!("{}/{}", args[2], data.get_config_path().display())
+    } else {
+        // if run without any directory use the current directory
+        format!("{}", data.get_config_path().display())
+    };
     let config_path = PathBuf::from(config_path);
     if !config_path.exists() {
         println!("{} does not exist", { config_path.display() });
