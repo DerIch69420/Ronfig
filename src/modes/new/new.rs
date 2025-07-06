@@ -5,7 +5,7 @@ use std::{
 };
 
 pub fn new(args: &Vec<String>) {
-    let directory = PathBuf::from(&args[2]);
+    let directory: PathBuf = PathBuf::from(&args[2]);
 
     if directory.exists() {
         println!("{} already exists!", directory.display());
@@ -15,10 +15,10 @@ pub fn new(args: &Vec<String>) {
 
     fs::create_dir(&directory).expect("Couldn't create directory");
 
-    let file_path = directory.join("config.json");
-    let mut file = File::create(&file_path).expect("Couldn't create config.json");
+    let file_path: PathBuf = directory.join("config.json");
+    let mut file: File = File::create(&file_path).expect("Couldn't create config.json");
 
-    let config_data = r#"[
+    let config_data: &'static str = r#"[
   {
     "config_file_path": "my_config_file.conf",
     "desired_path": "my/config/location"

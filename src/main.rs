@@ -3,6 +3,8 @@ mod config;
 mod config_file;
 mod modes;
 
+use std::path::PathBuf;
+
 use args::{args::get_args, handle_args::handle_mode};
 use config::config_options::ConfigOptions;
 use config_file::{
@@ -17,8 +19,8 @@ use modes::modes::Mode;
 use modes::{copy::check::check_exists, new::new::new};
 
 fn main() {
-    let args = get_args();
-    let mode = handle_mode(args.clone());
+    let args: Vec<String> = get_args();
+    let mode: Mode = handle_mode(args.clone());
 
     if mode == Mode::Indvalid {
         invalid();
@@ -43,9 +45,9 @@ fn main() {
         }
 
         // Get configuration
-        let file_path = get_file(&args);
-        let data = get_content(&file_path);
-        let config = convert_to_json(&data);
+        let file_path: PathBuf = get_file(&args);
+        let data: String = get_content(&file_path);
+        let config: Vec<ConfigOptions> = convert_to_json(&data);
 
         // Copy everything to desired locations
         for configuration in &config {
@@ -68,4 +70,3 @@ fn main() {
         }
     }
 }
-
