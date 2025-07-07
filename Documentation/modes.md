@@ -9,6 +9,10 @@ ronfig $mode
 ```bash
 ronfig copy $config_dir
 ```
+* If used without any directory as argument it uses your current directory
+```bash
+ronfig copy
+```
 
 ## New
 * Create a new directory and the corresponding config.json
