@@ -1,7 +1,7 @@
 use crate::modes::modes::Mode;
 
-pub fn handle_mode(args: Vec<String>) -> Mode {
-    let mode: Mode = Mode::from_str(&args[1].to_lowercase());
+pub fn handle_mode(args: &String) -> Mode {
+    let mode: Mode = Mode::from_str(&args.to_lowercase());
 
     match mode {
         Mode::Help => return Mode::Help,

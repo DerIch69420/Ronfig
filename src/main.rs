@@ -20,7 +20,7 @@ use modes::{copy::check::check_exists, new::new::new};
 
 fn main() {
     let args: Vec<String> = get_args();
-    let mode: Mode = handle_mode(args.clone());
+    let mode: Mode = handle_mode(&args[1]);
 
     if mode == Mode::Indvalid {
         invalid();
