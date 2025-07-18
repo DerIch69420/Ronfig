@@ -25,7 +25,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     };
     let mode: Mode = handle_mode(&args[1]);
 
-    if mode == Mode::Indvalid {
+    if mode == Mode::Invalid {
         invalid();
     }
 

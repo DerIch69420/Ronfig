@@ -5,7 +5,7 @@ pub enum Mode {
     Help,
     New,
     Copy,
-    Indvalid,
+    Invalid,
 }
 
 impl Mode {
@@ -14,7 +14,7 @@ impl Mode {
             "help" => Mode::Help,
             "new" => Mode::New,
             "copy" => Mode::Copy,
-            _ => Mode::Indvalid,
+            _ => Mode::Invalid,
         }
     }
 }
