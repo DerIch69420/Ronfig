@@ -47,7 +47,11 @@ pub fn copy_file(data: &ConfigOptions, args: &Vec<String>) {
 }
 
 pub fn copy_dir(data: &ConfigOptions, args: &Vec<String>) {
-    let directory = format!("{}/{}", args[2], data.get_config_path().display());
+    let directory: String = if args.len() == 3 {
+        format!("{}/{}", args[2], data.get_config_path().display())
+    } else {
+        format!("{}", data.get_config_path().display())
+    };
     let directory = PathBuf::from(directory);
     // dbg!(&directory);
 
