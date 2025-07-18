@@ -3,7 +3,7 @@ mod config;
 mod config_file;
 mod modes;
 
-use std::path::PathBuf;
+use std::{error::Error, path::PathBuf};
 
 use args::{args::get_args, handle_args::handle_mode};
 use config::config_options::ConfigOptions;
@@ -18,8 +18,11 @@ use modes::invalid::invalid::invalid;
 use modes::modes::Mode;
 use modes::{copy::check::check_exists, new::new::new};
 
-fn main() {
-    let args: Vec<String> = get_args();
+fn main() -> Result<(), Box<dyn Error>> {
+    let args: Vec<String> = match get_args() {
+        Ok(args) => args,
+        Err(err_msg) => return Err(err_msg.into()),
+    };
     let mode: Mode = handle_mode(&args[1]);
 
     if mode == Mode::Indvalid {
@@ -33,7 +36,7 @@ fn main() {
     if mode == Mode::New {
         if args.len() != 3 {
             println!("Wrong amount of arguments");
-            return;
+            return Ok(());
         }
         new(&args);
     }
@@ -41,7 +44,7 @@ fn main() {
     if mode == Mode::Copy {
         if args.len() != 2 && args.len() != 3 {
             println!("Wrong amount of arguments");
-            return;
+            return Ok(());
         }
 
         // Get configuration
@@ -69,4 +72,6 @@ fn main() {
             }
         }
     }
+
+    Ok(())
 }
