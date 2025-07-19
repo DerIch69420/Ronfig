@@ -3,20 +3,16 @@ mod config;
 mod config_file;
 mod modes;
 
-use std::{error::Error, path::PathBuf};
+use std::error::Error;
 
 use args::{args::get_args, handle_args::handle_mode};
-use config::config_options::ConfigOptions;
-use config_file::{
-    convert_to_json::convert_to_json,
-    handle_file::{get_content, get_file},
-};
 
-use modes::copy::copy::{copy_dir, copy_file};
 use modes::help::help::help;
 use modes::invalid::invalid::invalid;
 use modes::modes::Mode;
-use modes::{copy::check::check_exists, new::new::new};
+use modes::new::new::new;
+
+use crate::modes::copy::copy::copy;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = match get_args() {
@@ -45,30 +41,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             return Err("Wrong amount of arguments".into());
         }
 
-        // Get configuration
-        let file_path: PathBuf = get_file(&args);
-        let data: String = get_content(&file_path);
-        let config: Vec<ConfigOptions> = convert_to_json(&data);
-
-        // Copy everything to desired locations
-        for configuration in &config {
-            check_exists(&configuration, &args);
-
-            match configuration {
-                ConfigOptions::File {
-                    config_file_path: _,
-                    desired_path: _,
-                } => {
-                    copy_file(&configuration, &args);
-                }
-                ConfigOptions::Directory {
-                    config_dir_path: _,
-                    desired_path: _,
-                } => {
-                    copy_dir(&configuration, &args);
-                }
-            }
-        }
+        copy(&args);
     }
 
     Ok(())
