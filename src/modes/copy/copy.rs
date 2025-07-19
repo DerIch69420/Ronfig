@@ -86,7 +86,9 @@ pub fn copy(args: &Vec<String>) {
 
     // Copy everything to desired locations
     for configuration in &config {
-        check_exists(&configuration, &args);
+        if !check_exists(&configuration, &args) {
+            continue;
+        }
 
         match configuration {
             ConfigOptions::File {
