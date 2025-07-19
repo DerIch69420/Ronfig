@@ -7,12 +7,11 @@ use std::error::Error;
 
 use args::{args::get_args, handle_args::handle_mode};
 
+use modes::copy::copy::copy;
 use modes::help::help::help;
 use modes::invalid::invalid::invalid;
 use modes::modes::Mode;
 use modes::new::new::new;
-
-use crate::modes::copy::copy::copy;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = match get_args() {
