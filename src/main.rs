@@ -35,16 +35,14 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     if mode == Mode::New {
         if args.len() != 3 {
-            println!("Wrong amount of arguments");
-            return Ok(());
+            return Err("Wrong amount of arguments".into());
         }
         new(&args);
     }
 
     if mode == Mode::Copy {
         if args.len() != 2 && args.len() != 3 {
-            println!("Wrong amount of arguments");
-            return Ok(());
+            return Err("Wrong amount of arguments".into());
         }
 
         // Get configuration
