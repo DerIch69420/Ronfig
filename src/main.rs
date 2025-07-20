@@ -32,7 +32,10 @@ fn main() -> Result<(), Box<dyn Error>> {
         if args.len() != 3 {
             return Err("Wrong amount of arguments".into());
         }
-        new(&args);
+
+        if let Err(e) = new(&args) {
+            return Err(e);
+        }
     }
 
     if mode == Mode::Copy {
