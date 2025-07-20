@@ -4,7 +4,14 @@ use std::{
     path::PathBuf,
 };
 
-use crate::config::config_options::ConfigOptions;
+use crate::{
+    config::config_options::ConfigOptions,
+    config_file::{
+        convert_to_json::convert_to_json,
+        handle_file::{get_content, get_file},
+    },
+    modes::copy::check::check_exists,
+};
 
 fn copy_from_to(source: PathBuf, destination: PathBuf) {
     if source.is_dir() {
@@ -27,7 +34,7 @@ fn copy_from_to(source: PathBuf, destination: PathBuf) {
     }
 }
 
-pub fn copy_file(data: &ConfigOptions, args: &Vec<String>) {
+fn copy_file(data: &ConfigOptions, args: &Vec<String>) {
     let filename = format!("{}/{}", args[2], data.get_config_path().display());
     let filename = PathBuf::from(filename);
 
@@ -46,7 +53,7 @@ pub fn copy_file(data: &ConfigOptions, args: &Vec<String>) {
     })
 }
 
-pub fn copy_dir(data: &ConfigOptions, args: &Vec<String>) {
+fn copy_dir(data: &ConfigOptions, args: &Vec<String>) {
     let directory: String = if args.len() == 3 {
         format!("{}/{}", args[2], data.get_config_path().display())
     } else {
@@ -69,4 +76,33 @@ pub fn copy_dir(data: &ConfigOptions, args: &Vec<String>) {
         directory.display(),
         new_dir.display()
     );
+}
+
+pub fn copy(args: &Vec<String>) {
+    // Get configuration
+    let file_path: PathBuf = get_file(&args);
+    let data: String = get_content(&file_path);
+    let config: Vec<ConfigOptions> = convert_to_json(&data);
+
+    // Copy everything to desired locations
+    for configuration in &config {
+        if !check_exists(&configuration, &args) {
+            continue;
+        }
+
+        match configuration {
+            ConfigOptions::File {
+                config_file_path: _,
+                desired_path: _,
+            } => {
+                copy_file(&configuration, &args);
+            }
+            ConfigOptions::Directory {
+                config_dir_path: _,
+                desired_path: _,
+            } => {
+                copy_dir(&configuration, &args);
+            }
+        }
+    }
 }

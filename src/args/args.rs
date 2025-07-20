@@ -1,6 +1,6 @@
-use std::{env, process::exit};
+use std::env;
 
-pub fn get_args() -> Vec<String> {
+pub fn get_args() -> Result<Vec<String>, String> {
     // Get passed arguments
     let args: Vec<String> = env::args().collect();
     // args[0] -> location of binary
@@ -9,19 +9,15 @@ pub fn get_args() -> Vec<String> {
 
     // dbg!(&args);
 
-    // Too few arguments
+    // No argument has been passed
     if args.len() == 1 {
-        println!("No arguments passed");
-        println!("Try adding \"help\"");
-        exit(1);
+        return Err(String::from("No arguments passed. Try adding \"help\""));
     }
 
     // Too many arguments
     if args.len() > 3 {
-        println!("Too many arguments passed");
-        println!("Try \"Help\"");
-        exit(1)
+        return Err(String::from("Too many arguments passed. Try \"help\""));
     }
 
-    return args;
+    return Ok(args);
 }

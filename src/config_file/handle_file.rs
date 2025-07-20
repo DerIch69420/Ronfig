@@ -1,17 +1,11 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::PathBuf;
-use std::process::exit;
 
 pub fn get_file(args: &Vec<String>) -> PathBuf {
     // First argument is ronfig binary
     // Second argument is mode
-    // Third argument is dir in which config.json is
-    if args.len() > 3 {
-        println!("Too many arguments!");
-        println!("Try using \"help\"");
-        exit(1);
-    }
+    // Third argument is directory in which config.json is
 
     // Form path of the config file
     let file_path: String = if args.len() == 2 {

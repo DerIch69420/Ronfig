@@ -7,6 +7,6 @@ pub fn handle_mode(args: &String) -> Mode {
         Mode::Help => return Mode::Help,
         Mode::New => return Mode::New,
         Mode::Copy => return Mode::Copy,
-        Mode::Indvalid => return Mode::Indvalid,
+        Mode::Invalid => return Mode::Invalid,
     }
 }
